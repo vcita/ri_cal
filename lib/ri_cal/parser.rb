@@ -24,11 +24,14 @@ module RiCal
       if string
         string.split(";").inject({}) { |result, val|
           m = /^(.+)=(.+)$/.match(val)
-          raise "Invalid parameter value #{val.inspect}" unless m
-          #TODO - The gsub below is a simplest fix for http://rick_denatale.lighthouseapp.com/projects/30941/tickets/19
-          #       it may need further examination if more pathological cases show up.
-          param_val = m[2].sub(/^\"(.*)\"$/, '\1') 
-          result[m[1]] = param_val
+        
+          if m # Ignore invalid results 
+	    #TODO - The gsub below is a simplest fix for http://rick_denatale.lighthouseapp.com/projects/30941/tickets/19
+	    #       it may need further examination if more pathological cases show up.
+	    param_val = m[2].sub(/^\"(.*)\"$/, '\1') 
+	    result[m[1]] = param_val
+          end
+
           result 
         }
       else
