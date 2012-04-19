@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ri_cal}
-  s.version = "0.8.8"
+  s.version = "0.8.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Rick DeNatale"]
-  s.date = %q{2011-02-13}
+  s.date = %q{2012-04-19}
   s.default_executable = %q{ri_cal}
   s.description = %q{A new Ruby implementation of RFC2445 iCalendar.
 

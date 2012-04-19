@@ -179,7 +179,7 @@ module RiCal
       def last_before_utc(period_array, time) #:nodoc:
         candidates = period_array.map {|period|
           period.last_before_utc(time)
-        }
+        }.compact
         result = candidates.max {|a, b| a.dtstart_property <=> b.dtstart_property}
         result
       end
@@ -187,7 +187,7 @@ module RiCal
       def last_before_local(period_array, time) #:nodoc:
         candidates = period_array.map {|period|
           period.last_before_local(time)
-        }
+        }.compact
         result = candidates.max {|a, b| a.dtstart_property <=> b.dtstart_property}
         result
       end
